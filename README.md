@@ -26,7 +26,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Debería ser un *100%* puesto que al ejecutar el primer comando ambos procesos tanto el 0 como el 1 ejecutan en todos los momentos cpu. Al comprobar se puede evidenciar que efectivamente el consumo de la cpu es de 100%. al procesos de cpu oscilan solo entre los estados ready y running.
+   Debería ser un 100% puesto que al ejecutar el primer comando ambos procesos tanto el 0 como el 1 ejecutan en todos los momentos cpu. Al comprobar se puede evidenciar que efectivamente el consumo de la cpu es de 100%. al procesos de cpu oscilan solo entre los estados ready y running.
      
    - [x] Se aprovecha al máximo el recurso de la cpu.
    - [ ] No se aprovecha al máximo el recurso de la cpu
@@ -41,7 +41,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Debería tener una demora de *11 tiempos* debido a que el llamado a I/O genera un estado de blocked durante 5 momentos de tiempo, mientras que en los otros 6 se ejecuta los procesos en cpu los 4    usando el 100% de la cpu y el run y el done del proceso I/O. en este caso se oscila entre los 3 estados, ready, running y blocked para el proceso I/O y running y ready para los procesos CPU.
+   Debería tener una demora de 11 tiempos debido a que el llamado a I/O genera un estado de blocked durante 5 momentos de tiempo, mientras que en los otros 6 se ejecuta los procesos en cpu los 4    usando el 100% de la cpu y el run y el done del proceso I/O. en este caso se oscila entre los 3 estados, ready, running y blocked para el proceso I/O y running y ready para los procesos CPU.
      
    - [ ] Se aprovecha al máximo el recurso de la cpu.
    - [x] No se aprovecha al máximo el recurso de la cpu
@@ -55,7 +55,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    :warning:<u>*La solución se encuentra al desplegar abajo*</u>
    <details>
    <summary>Answer</summary>
-   Para este caso al invertir deberia ocuparse la CPU por parte de los otros procesos mientras el I/O se ejecuta en el estado Blocked, *esto pasa por los 3 estados al cambiar de run a blocked el cpu queda libre para que se ejecuten los procesos que solo requieren CPU*,aquí el proceso deberia demorarse 7 momentos para procesar ambos programas y un mejor       
+   Para este caso al invertir deberia ocuparse la CPU por parte de los otros procesos mientras el I/O se ejecuta en el estado Blocked, esto pasa por los 3 estados al cambiar de run a blocked el cpu queda libre para que se ejecuten los procesos que solo requieren CPU,aquí el proceso deberia demorarse 7 momentos para procesar ambos programas y un mejor       
    aprovechamiento del cpu.
      
    - [x] Se aprovecha al máximo el recurso de la cpu.
@@ -101,7 +101,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   En este caso sucede que todos los procesos que no son de I/O se ejecutan primera antes de que el primer proceso de I/O termine, es decir cuando pasa el primer proceso de I/O y este pasa de estado a blocked, comienza a ejecutar todos los procesos de CPU posponiendo la finalización de este proceso de I/0 y *esperando por 9 tiempos para ejecutar la finalización de este I/O*. Definitivamento no es el uso más efectivo de los recursos ya que en gran parte de las otras ejecuciones de I/O la cpu no se utiliza.
+   En este caso sucede que todos los procesos que no son de I/O se ejecutan primera antes de que el primer proceso de I/O termine, es decir cuando pasa el primer proceso de I/O y este pasa de estado a blocked, comienza a ejecutar todos los procesos de CPU posponiendo la finalización de este proceso de I/0 y esperando por 9 tiempos para ejecutar la finalización de este I/O. Definitivamento no es el uso más efectivo de los recursos ya que en gran parte de las otras ejecuciones de I/O la cpu no se utiliza.
      
    - [ ] Se aprovecha al máximo el recurso de la cpu.
    - [x] No se aprovecha al máximo el recurso de la cpu
@@ -116,7 +116,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   El comportamiento difiere en que ahora se *aprovechan todos los tiempos que los I/O se encuentran Blocked para ejecutar los otros procesos de CPU*. Es buena idea si se organizan de manera que siempre en esos tiempos donde el cpu de la I/O no se este utilizando pueda aprovecharse para las otras tareas de CPU.
+   El comportamiento difiere en que ahora se aprovechan todos los tiempos que los I/O se encuentran Blocked para ejecutar los otros procesos de CPU. Es buena idea si se organizan de manera que siempre en esos tiempos donde el cpu de la I/O no se este utilizando pueda aprovecharse para las otras tareas de CPU.
    este la muestra del caso que deberia ser para poder optimizar el uso de los recursos.
      
    - [x] Se aprovecha al máximo el recurso de la cpu.
