@@ -2,8 +2,8 @@
 
 |Integrante|correo|usuario github|
 |---|---|---|
-|Nombre completo integrante 1|correo integrante 1|gihub user integrante 1|
-|Nombre completo integrante 2|correo integrante 2|gihub user integrante 2|
+|Juan Esteban Aristizabal Aristizabal|jesteban.aristizabal@udea.edu.co|Jesteban97|
+|Sharid Samantha Madrid Ospina|sharid.madrid@udea.edu.co|sharid.madrid@udea.edu.co|
 
 ## Instrucciones
 
@@ -24,7 +24,8 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Debería ser un 100% puesto que al ejecutar el primer comando ambos procesos tanto el 0 como el 1 ejecutan en todos los momentos cpu. Al comprobar se puede evidenciar que efectivamente    el consumo de la cpu es de 100%.
+   ![image](https://github.com/user-attachments/assets/d02f1464-00ce-4d22-a184-5b580f03fd60)
    </details>
    <br>
 
@@ -32,7 +33,8 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Debería tener una demora de 11 debido a que el llamado a I/O genera un estado de blocked durante 5 momentos de tiempo, mientras que en los otros 6 se ejecuta los procesos en cpu los 4    usando el 100% de la cpu y el run y el done del proceso I/O.
+    ![image](https://github.com/user-attachments/assets/dc253a0d-97f1-4e32-8d85-69df77424454)
    </details>
    <br>
 
@@ -40,7 +42,9 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Para este caso al invertir deberia ocuparse la CPU por parte de los otros procesos mientras el I/O se ejecuta en el estado Blocked, esto pasa por los 3 estados al cambiar de run a        blocked el cpu queda libre para que se ejecuten los procesos que solo requieren CPU,aquí el proceso deberia demorarse 7 momentos para procesar ambos programas y un mejor       
+   aprovechamiento del cpu.
+   ![image](https://github.com/user-attachments/assets/829c44e3-fdae-4a1e-84bc-f7766566a01c)
    </details>
    <br>
 
@@ -48,7 +52,9 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Efectivamente es como ocurre en el caso 2, se demora 11 momentos en realizar el procesamiento de ambos procesos, y tiene un % de CPU que no se utiliza cuando se ejecuta el proceso de     I/O. Este comando hace que se tenga que ejecutar todo un proceso para empezar el siguiente, los procesos de CPU se quedan en espera(Ready) mientras la I/O finaliza.
+   ![image](https://github.com/user-attachments/assets/22bdb16c-0ddc-4092-9e6c-c1ef34b8a0bc)
+
    </details>
    <br>
 
@@ -56,7 +62,8 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   Con este comando hace que se ejecute de manera que cuando se entra al estado blocked por parte del I/O se aproveche el espacio para ejecutar los procesos en CPU, tal y como ocurre con    el caso 3. Dando un mejor rendimiento ya que se aprovecha mejor el consumo de la CPU y disminuye los tiempos de ejecución.
+   ![image](https://github.com/user-attachments/assets/1aa9d84a-c706-41b3-9db0-60c43ed83109)
    </details>
    <br>
 
@@ -64,7 +71,8 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   En este caso sucede que todos los procesos que no son de I/O se ejecutan primera antes de que el primer proceso de I/0 termine, es decir cuando pasa el primer proceso de I/0 y este       pasa de estado a blocked, comienza a ejecutar todos los procesos de CPU posponiendo la finalización de este proceso de I/0 y esperando por 9 tiempos para ejecutar la finalización de      este I/O. Definitivamento no es el uso más efectivo de los recursos ya que en gran parte de las otras ejecuciones de I/O la cpu no se utiliza.
+   ![image](https://github.com/user-attachments/assets/d11c4d3b-2c10-4701-b63d-24de0932688c)
    </details>
    <br>
 
@@ -72,7 +80,8 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   Coloque aqui su respuerta
+   El comportamiento difiere en que ahora se aprovechan todos los tiempos que los I/O se encuentran Blocked para ejecutar los otros procesos de CPU. Es buena idea si se organizan de         manera que siempre en esos tiempos donde el cpu de la I/O no se este utilizando pueda aprovecharse para las otras tareas de CPU.
+   ![image](https://github.com/user-attachments/assets/1d499b16-531d-4b07-ad6e-03136396c4d6)
    </details>
    <br>
 
